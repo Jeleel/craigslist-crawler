@@ -1,16 +1,20 @@
 <?php
-fclose(STDIN);
-fclose(STDOUT);
-fclose(STDERR);
+//fclose(STDIN);
+//fclose(STDOUT);
+//fclose(STDERR);
+//
+//$STDIN = fopen('/dev/null', 'r');
+//$STDOUT = fopen(dirname(__FILE__) . '/application.log', 'wb');
+//$STDERR = fopen(dirname(__FILE__) . '/error.log', 'wb');
+//
+////error log func
+//function err($str) {
+//	global $STDERR;
+//	fwrite($STDERR, "\n".$str);
+//}
 
-$STDIN = fopen('/dev/null', 'r');
-$STDOUT = fopen(dirname(__FILE__) . '/application.log', 'wb');
-$STDERR = fopen(dirname(__FILE__) . '/error.log', 'wb');
-
-//error log func
 function err($str) {
-	global $STDERR;
-	fwrite($STDERR, "\n".$str); 
+    echo "\n" . $str;
 }
 
 //auto load
