@@ -1,3 +1,5 @@
 pimpMyCraigslist/application.log
 pimpMyCraigslist/error.log
 pimpMyCraigslist/post_ids.txt
+vendor
+composer.lock
