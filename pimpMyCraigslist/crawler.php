@@ -13,6 +13,8 @@ function err($str) {
 	fwrite($STDERR, "\n".$str); 
 }
 
+//auto load
+require dirname(__FILE__). '/../vendor/autoload.php';
 require_once("simple_html_dom.php");
 require_once("PointLocation.php");
 $filename = dirname(__FILE__) . "/post_ids.txt";
@@ -24,7 +26,6 @@ if (PHP_SAPI != "cli" && PHP_SAPI != "cgi-fcgi") {
 }
 
 //Validation
-
 if ($argc < 4) {
 	err("Wrong number of arguments.");
 	err("Usage php crawler.php {emails} {search query} {bounding polygon} ");
@@ -71,8 +72,8 @@ if ($bounding_polygon_arr[0] != end($bounding_polygon_arr)) {
 
 
 //Start
-
-
+use GuzzleHttp\Client;
+$client = new Client();
 /*
 * LOGIC:
 	1.we open/read text file and store all the ids in an array 
@@ -108,7 +109,7 @@ if (file_exists($filename)) {
 //2.
 
 // Create DOM from URL
-$html = file_get_html($search_query);
+$html = str_get_html($client->get($search_query)->getBody());
 
 if (!$html) {
 	err("$search_query seems unreachable.");
@@ -142,7 +143,7 @@ foreach($html->find('p') as $element) {
 	//add random sleep between 2 and 4 sec
 	sleep(rand(0.5, 1.5));
 	//then get the posting html
-	$html_posting = file_get_html($new_posting['href']);
+	$html_posting = str_get_html($client->get($new_posting['href'])->getBody());
 	//search for lat and long
 	foreach ($html_posting->find('div[data-latitude]') as $elt) {
 		//if found add to posting attributes
