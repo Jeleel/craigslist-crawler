@@ -113,7 +113,14 @@ if (file_exists($filename)) {
 //2.
 
 // Create DOM from URL
-$html = str_get_html($client->get($search_query)->getBody());
+$html = false;
+
+try {
+    $html = str_get_html($client->get($search_query)->getBody());
+} catch (GuzzleHttp\Exception\ClientException $e) {
+    echo 'Uh oh! ' . $e->getMessage();
+}
+
 
 if (!$html) {
 	err("$search_query seems unreachable.");
