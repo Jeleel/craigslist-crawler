@@ -157,8 +157,18 @@ try {
 		}
 		//add random sleep between .5 and 1.5 sec
 		sleep(rand(0.5, 1.5));
-		//then get the posting html
-		$html_posting = str_get_html($client->get($new_posting['href'])->getBody());
+		try {
+			//then get the posting html
+			$html_posting = str_get_html($client->get($new_posting['href'])->getBody());
+		} catch (\Exception $e) {
+			err("Exception occurred while trying to fetch posting".$new_posting['href']." error->". $e->getMessage());
+		}
+
+		if (!$html_posting) {
+			echo "\n fetching posting failed ".$new_posting['href'].", continuing.";
+			continue;
+		}
+		
 		//search for lat and long
 		foreach ($html_posting->find('div[data-latitude]') as $elt) {
 			//if found add to posting attributes
