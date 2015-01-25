@@ -23,8 +23,11 @@ function err($str) {
 require dirname(__FILE__). '/../vendor/autoload.php';
 require_once("simple_html_dom.php");
 require_once("PointLocation.php");
-$filename = dirname(__FILE__) . "/post_ids.txt";
 use GuzzleHttp\Client as Client;
+
+//Init posting ids file
+$filename = dirname(__FILE__) . "/post_ids.txt";
+
 //Checking CLI
 if (PHP_SAPI != "cli" && PHP_SAPI != "cgi-fcgi") {
     err("This script must be ran from the command line. Exiting...");
@@ -42,7 +45,7 @@ if ($argc < 4) {
 } 
 
 if (!$argv) {
-	err("Error occured with the arguments");
+	err("Error occurred with the arguments");
 	exit(1);
 }
 
@@ -72,7 +75,7 @@ if (count($bounding_polygon_arr) < 3) {
 	exit(1);
 }
 if ($bounding_polygon_arr[0] != end($bounding_polygon_arr)) {
-	err("Please make sure the bouding polygon is closed.");
+	err("Please make sure the bounding polygon is closed.");
 	exit(1);
 }
 
@@ -80,7 +83,7 @@ try {
 	//Start
 	$client = new Client([
 	    'headers' => [
-	        'User-Agent' => 'Mozilla/5.0 (Windows NT 6.3; rv:36.0) Gecko/20100101 Firefox/36.0',
+	        'User-Agent' => 'Mozilla/5.0 (Windows NT 6.3; rv:36.0) Gecko/20100101 Firefox/36.0'
 	    ]
 	]);
 

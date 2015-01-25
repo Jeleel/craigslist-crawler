@@ -37,7 +37,7 @@ Run the `crawler.php` script by command line for testing.
 
    e.g: 'http://losangeles.craigslist.org/search/apa?catAbb=apa&maxAsk=1500&sort=date#grid'
    
-- `<polygon>` :<a name="3"></a> Go to [Google Maps](http://maps.google.com) and define the bounds of your polygon. (To get the latitude and logintude of any point just drop a pin on the map, right-click and select "What's here")
+- `<polygon>` :<a name="3"></a> You can use the `index.html` UI to draw your polygon and get the coordinates. Or go to [Google Maps](http://maps.google.com) and define the bounds of your polygon. (To get the latitude and longitude of any point just drop a pin on the map, right-click and select "What's here")
 
    e.g:  '33.995039 -118.395565,34.005001 -118.420799,34.033599 -118.431957,34.037582 -118.40123,34.055362 -118.376682,34.047824 -118.359001,34.036586 -118.354366,34.020226 -118.372048,33.995039 -118.395565'
 
