@@ -2,8 +2,6 @@
 
 ### Description
 
-Hello,
-
 Have you ever searched for anything on  &copy; [Craigslist](http://www.craigslist.com)? 
 If yes, then you probably already told yourself:
 
@@ -31,6 +29,8 @@ Run the `crawler.php` script by command line for testing.
    + Where `<query>` is your craigslist search query (see [query](#2))
    + Where `<polygon>` is a comma delimited list of longitude and latitude forming a closed polygon (see [polygon](#3))
 
+(running too many instances of this script or running it too often might result in having your IP address banned, so be careful!)
+
 #### Parameters
 
 - `<query>` :<a name="2"></a> Perform a regular search on craigslist with the desired filters. Then copy the URL to your clipboard.
@@ -53,8 +53,11 @@ Since postings usually have a very short life span, this script only process pos
 
 ## Warning
 
+It is recommended to run this script locally. Craigslist blocks major cloud provider IP ranges (AWS EC2, Heroku..)
+
 This software is provided as is.
 Please check &copy; [Craigslist](http://www.craigslist.com) [terms and conditions](http://www.craigslist.org/about/terms.of.use) related to the data you extract.
+
 
 ## License
 
