@@ -15,7 +15,7 @@ Well, this script provides that feature. Whenever there is a new post it just se
 
 ### Requirements
 
-php > 5.3 installed
+php >= 5.4.x installed
 
 ### Usage
 

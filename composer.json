@@ -2,6 +2,7 @@
     "require": {
         "monolog/monolog": "1.0.*",
         "guzzlehttp/guzzle": "~5.0",
-        "ext-mbstring": "*"
+        "ext-mbstring": "*",
+        "php": ">=5.4.0"
     }
 }
